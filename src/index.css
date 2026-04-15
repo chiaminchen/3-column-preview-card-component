@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-big-shoulders: 'Big Shoulders', sans-serif;
+  --font-lexend-deca: 'Lexend Deca', sans-serif;
+  --color-gray-light: #f2f2f2;
+  --color-green-dark: #004140;
+  --color-green-light: #19b89d;
+  --color-cyan-dark: #006971;
+  --color-cyan-light: #26b5c0;
+  --color-gold-dark: #e28625;
+  --color-gold-light: #ffd473;
+  --width-card-fluid: clamp(20.4375rem, 10.274rem + 43.3642vw, 38rem);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-lexend-deca);
+    background-color: var(--color-gray-light);
+  }
+}
