@@ -38,8 +38,8 @@ const cars: CarsType[] = [
 
 function App() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center my-22 lg:flex-row lg:my-0">
-      {cars.map(car => (
+    <main className="my-22 flex min-h-screen flex-col items-center justify-center lg:my-0 lg:flex-row">
+      {cars.map((car) => (
         <Car
           key={car.type}
           color={`${car.color}`}
@@ -61,11 +61,13 @@ const CAR_THEME = {
 function Car({ color, icon, type, intro }: CarsType) {
   return (
     <article
-      className={`${CAR_THEME[color]} text-body leading-[1.65] w-card-fluid p-12 space-y-8 first:rounded-t-card last:rounded-b-card lg:w-card-normal lg:space-y-10 lg:first:rounded-s-card lg:first:rounded-tr-none lg:last:rounded-e-card lg:last:rounded-bl-none`}
+      className={`${CAR_THEME[color]} text-body w-card-fluid first:rounded-t-card last:rounded-b-card lg:w-card-normal lg:first:rounded-s-card lg:last:rounded-e-card space-y-8 p-12 leading-[1.65] lg:space-y-10 lg:first:rounded-tr-none lg:last:rounded-bl-none`}
     >
       <img src={icon} alt={type} width={64} height={40} />
       <div className="space-y-6">
-        <h2 className="font-big-shoulders text-[2.5rem] leading-[1.2] text-gray-light">{type}</h2>
+        <h2 className="font-big-shoulders text-gray-light text-[2.5rem] leading-[1.2]">
+          {type}
+        </h2>
         <p className="text-white opacity-75 lg:mb-20">{intro}</p>
         <Button color={color} />
       </div>
@@ -82,7 +84,7 @@ function Button({ color }: ColorType) {
 
   return (
     <button
-      className={`bg-gray-light ${themeMap[color]} w-36.75 h-12 rounded-full border-2 border-transparent hover:bg-transparent hover:text-white hover:border-white transition-colors duration-200 cursor-pointer`}
+      className={`bg-gray-light ${themeMap[color]} h-12 w-36.75 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 hover:border-white hover:bg-transparent hover:text-white`}
     >
       Learn More
     </button>
