@@ -78,16 +78,16 @@ function Car({ color, icon, type, intro }: CarType) {
   );
 }
 
-function Button({ color, type }: ButtonType) {
-  const themeMap = {
-    gold: 'text-gold-dark',
-    cyan: 'text-cyan-dark',
-    green: 'text-green-dark',
-  };
+const TEXT_COLORS_THEME = {
+  gold: 'text-gold-dark',
+  cyan: 'text-cyan-dark',
+  green: 'text-green-dark',
+} as const;
 
+function Button({ color, type }: ButtonType) {
   return (
     <button
-      className={`bg-gray-light ${themeMap[color]} w-button h-button cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 hover:border-white hover:bg-transparent hover:text-white`}
+      className={`bg-gray-light ${TEXT_COLORS_THEME[color]} w-button h-button cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 hover:border-white hover:bg-transparent hover:text-white`}
       aria-label={`Learn more about ${type} car`}
     >
       Learn More
