@@ -43,17 +43,20 @@ const cars: CarType[] = [
 
 function App() {
   return (
-    <main className="my-22 flex min-h-screen flex-col items-center justify-center lg:my-0 lg:flex-row">
-      {cars.map((car) => (
-        <Car
-          key={car.type}
-          color={car.color}
-          icon={car.icon}
-          type={car.type}
-          intro={car.intro}
-        />
-      ))}
-    </main>
+    <>
+      <h1 className="sr-only">3-column preview card component</h1>
+      <main className="my-22 flex min-h-screen flex-col items-center justify-center lg:my-0 lg:flex-row">
+        {cars.map((car) => (
+          <Car
+            key={car.type}
+            color={car.color}
+            icon={car.icon}
+            type={car.type}
+            intro={car.intro}
+          />
+        ))}
+      </main>
+    </>
   );
 }
 
