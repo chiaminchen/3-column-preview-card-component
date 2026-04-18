@@ -1,21 +1,7 @@
 import sedansImage from './assets/icon-sedans.svg';
 import suvsImage from './assets/icon-suvs.svg';
 import luxuryImage from './assets/icon-luxury.svg';
-
-interface ColorType {
-  color: 'gold' | 'cyan' | 'green';
-}
-
-type CarCategory = 'Sedans' | 'SUVs' | 'Luxury';
-
-interface ButtonType extends ColorType {
-  type: CarCategory;
-}
-
-interface CarType extends ButtonType {
-  icon: string;
-  intro: string;
-}
+import { Car, type CarType } from './components/Car';
 
 const cars: CarType[] = [
   {
@@ -57,46 +43,6 @@ function App() {
         ))}
       </main>
     </>
-  );
-}
-
-const CAR_THEME = {
-  gold: 'bg-gold-dark',
-  cyan: 'bg-cyan-dark',
-  green: 'bg-green-dark',
-} as const;
-
-function Car({ color, icon, type, intro }: CarType) {
-  return (
-    <article
-      className={`${CAR_THEME[color]} text-body w-card-fluid first:rounded-t-card last:rounded-b-card lg:w-card-normal lg:first:rounded-s-card lg:last:rounded-e-card leading-body space-y-8 p-12 lg:space-y-10 lg:first:rounded-tr-none lg:last:rounded-bl-none`}
-    >
-      <img src={icon} alt="" aria-hidden="true" width={64} height={40} />
-      <div className="space-y-6">
-        <h2 className="font-big-shoulders text-gray-light text-title leading-title">
-          {type}
-        </h2>
-        <p className="text-white opacity-75 lg:mb-20">{intro}</p>
-        <Button color={color} type={type} />
-      </div>
-    </article>
-  );
-}
-
-const TEXT_COLORS_THEME = {
-  gold: 'text-gold-dark',
-  cyan: 'text-cyan-dark',
-  green: 'text-green-dark',
-} as const;
-
-function Button({ color, type }: ButtonType) {
-  return (
-    <button
-      className={`bg-gray-light ${TEXT_COLORS_THEME[color]} w-button h-button cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 hover:border-white hover:bg-transparent hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2`}
-      aria-label={`Learn more about ${type} car`}
-    >
-      Learn More
-    </button>
   );
 }
 
