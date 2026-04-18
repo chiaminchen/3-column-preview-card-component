@@ -17,11 +17,11 @@ export function Car({ color, icon, type, intro }: CarType) {
       className={`${CAR_THEME[color]} text-body w-card-fluid first:rounded-t-card last:rounded-b-card lg:w-card-normal lg:first:rounded-s-card lg:last:rounded-e-card leading-body space-y-8 p-12 lg:space-y-10 lg:first:rounded-tr-none lg:last:rounded-bl-none`}
     >
       <img src={icon} alt="" aria-hidden="true" width={64} height={40} />
-      <div className="space-y-6">
+      <div className="flex h-full flex-col gap-6">
         <h2 className="font-big-shoulders text-gray-light text-title leading-title">
           {type}
         </h2>
-        <p className="text-white opacity-75 lg:mb-20">{intro}</p>
+        <p className="grow text-white opacity-75 lg:mb-20">{intro}</p>
         <Button color={color} type={type} />
       </div>
     </article>
