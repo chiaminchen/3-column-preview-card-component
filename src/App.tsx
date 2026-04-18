@@ -6,13 +6,16 @@ interface ColorType {
   color: 'gold' | 'cyan' | 'green';
 }
 
-interface CarsType extends ColorType {
-  icon: string;
+interface ButtonType extends ColorType {
   type: string;
+}
+
+interface CarType extends ButtonType {
+  icon: string;
   intro: string;
 }
 
-const cars: CarsType[] = [
+const cars: CarType[] = [
   {
     color: 'gold',
     icon: sedansImage,
@@ -58,7 +61,7 @@ const CAR_THEME = {
   green: 'bg-green-dark',
 } as const;
 
-function Car({ color, icon, type, intro }: CarsType) {
+function Car({ color, icon, type, intro }: CarType) {
   return (
     <article
       className={`${CAR_THEME[color]} text-body w-card-fluid first:rounded-t-card last:rounded-b-card lg:w-card-normal lg:first:rounded-s-card lg:last:rounded-e-card leading-body space-y-8 p-12 lg:space-y-10 lg:first:rounded-tr-none lg:last:rounded-bl-none`}
@@ -69,13 +72,13 @@ function Car({ color, icon, type, intro }: CarsType) {
           {type}
         </h2>
         <p className="text-white opacity-75 lg:mb-20">{intro}</p>
-        <Button color={color} />
+        <Button color={color} type={type} />
       </div>
     </article>
   );
 }
 
-function Button({ color }: ColorType) {
+function Button({ color, type }: ButtonType) {
   const themeMap = {
     gold: 'text-gold-dark',
     cyan: 'text-cyan-dark',
@@ -85,7 +88,7 @@ function Button({ color }: ColorType) {
   return (
     <button
       className={`bg-gray-light ${themeMap[color]} w-button h-button cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 hover:border-white hover:bg-transparent hover:text-white`}
-      aria-label={`Learn more about  car`}
+      aria-label={`Learn more about ${type} car`}
     >
       Learn More
     </button>
