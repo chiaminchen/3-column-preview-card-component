@@ -1,3 +1,5 @@
+import { cn } from '../lib/utils';
+
 interface ColorType {
   color: 'gold' | 'cyan' | 'green';
 }
@@ -17,7 +19,13 @@ const TEXT_COLORS_THEME = {
 export function Button({ color, type }: ButtonType) {
   return (
     <button
-      className={`bg-gray-light ${TEXT_COLORS_THEME[color]} w-button h-button cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 hover:border-white hover:bg-transparent hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2`}
+      className={cn(
+        'w-button h-button cursor-pointer rounded-full border-2 border-transparent',
+        'bg-gray-light transition-colors duration-200',
+        'hover:border-white hover:bg-transparent hover:text-white',
+        'focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2',
+        TEXT_COLORS_THEME[color],
+      )}
       aria-label={`Learn more about ${type} car`}
     >
       Learn More
