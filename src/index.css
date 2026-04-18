@@ -12,8 +12,13 @@
   --color-gold-light: #ffd473;
   --width-card-fluid: clamp(20.4375rem, 10.274rem + 43.3642vw, 38rem);
   --width-card-normal: 19.1875rem;
+  --width-button: 9.1875rem;
+  --height-button: 3rem;
   --radius-card: 0.625rem;
+  --text-title: 2.5rem;
   --text-body: 0.9375rem;
+  --leading-title: 1.2;
+  --leading-body: 1.65;
 }
 
 @layer base {

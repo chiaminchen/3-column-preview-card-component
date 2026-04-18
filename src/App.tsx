@@ -42,7 +42,7 @@ function App() {
       {cars.map((car) => (
         <Car
           key={car.type}
-          color={`${car.color}`}
+          color={car.color}
           icon={car.icon}
           type={car.type}
           intro={car.intro}
@@ -61,11 +61,11 @@ const CAR_THEME = {
 function Car({ color, icon, type, intro }: CarsType) {
   return (
     <article
-      className={`${CAR_THEME[color]} text-body w-card-fluid first:rounded-t-card last:rounded-b-card lg:w-card-normal lg:first:rounded-s-card lg:last:rounded-e-card space-y-8 p-12 leading-[1.65] lg:space-y-10 lg:first:rounded-tr-none lg:last:rounded-bl-none`}
+      className={`${CAR_THEME[color]} text-body w-card-fluid first:rounded-t-card last:rounded-b-card lg:w-card-normal lg:first:rounded-s-card lg:last:rounded-e-card leading-body space-y-8 p-12 lg:space-y-10 lg:first:rounded-tr-none lg:last:rounded-bl-none`}
     >
-      <img src={icon} alt={type} width={64} height={40} />
+      <img src={icon} alt="" aria-hidden="true" width={64} height={40} />
       <div className="space-y-6">
-        <h2 className="font-big-shoulders text-gray-light text-[2.5rem] leading-[1.2]">
+        <h2 className="font-big-shoulders text-gray-light text-title leading-title">
           {type}
         </h2>
         <p className="text-white opacity-75 lg:mb-20">{intro}</p>
@@ -84,7 +84,8 @@ function Button({ color }: ColorType) {
 
   return (
     <button
-      className={`bg-gray-light ${themeMap[color]} h-12 w-36.75 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 hover:border-white hover:bg-transparent hover:text-white`}
+      className={`bg-gray-light ${themeMap[color]} w-button h-button cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 hover:border-white hover:bg-transparent hover:text-white`}
+      aria-label={`Learn more about  car`}
     >
       Learn More
     </button>
