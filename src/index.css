@@ -11,11 +11,18 @@
   --color-gold-dark: #e28625;
   --color-gold-light: #ffd473;
   --width-card-fluid: clamp(20.4375rem, 10.274rem + 43.3642vw, 38rem);
+  --width-card-normal: 19.1875rem;
+  --radius-card: 0.625rem;
+  --text-body: 0.9375rem;
 }
 
 @layer base {
   body {
     font-family: var(--font-lexend-deca);
     background-color: var(--color-gray-light);
+  }
+
+  #root {
+    display: contents;
   }
 }

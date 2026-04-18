@@ -52,24 +52,24 @@ function App() {
   );
 }
 
-function Car({ color, icon, type, intro }: CarsType) {
-  const themeMap = {
-    gold: 'bg-gold-dark',
-    cyan: 'bg-cyan-dark',
-    green: 'bg-green-dark',
-  };
+const CAR_THEME = {
+  gold: 'bg-gold-dark',
+  cyan: 'bg-cyan-dark',
+  green: 'bg-green-dark',
+} as const;
 
+function Car({ color, icon, type, intro }: CarsType) {
   return (
-    <section
-      className={`${themeMap[color]} text-[0.9375rem] leading-[1.65] w-card-fluid p-12 space-y-8 first:rounded-t-[0.625rem] last:rounded-b-[0.625rem] lg:w-[19.1875rem] lg:space-y-10 lg:first:rounded-s-[0.625rem] lg:first:rounded-tr-none lg:last:rounded-e-[0.625rem] lg:last:rounded-bl-none`}
+    <article
+      className={`${CAR_THEME[color]} text-body leading-[1.65] w-card-fluid p-12 space-y-8 first:rounded-t-card last:rounded-b-card lg:w-card-normal lg:space-y-10 lg:first:rounded-s-card lg:first:rounded-tr-none lg:last:rounded-e-card lg:last:rounded-bl-none`}
     >
-      <img src={icon} alt={type} />
+      <img src={icon} alt={type} width={64} height={40} />
       <div className="space-y-6">
         <h2 className="font-big-shoulders text-[2.5rem] leading-[1.2] text-gray-light">{type}</h2>
         <p className="text-white opacity-75 lg:mb-20">{intro}</p>
         <Button color={color} />
       </div>
-    </section>
+    </article>
   );
 }
 
@@ -82,7 +82,7 @@ function Button({ color }: ColorType) {
 
   return (
     <button
-      className={`bg-gray-light ${themeMap[color]} w-36.75 h-12 rounded-full hover:bg-transparent hover:text-white hover:border-2 transition-colors duration-200 cursor-pointer`}
+      className={`bg-gray-light ${themeMap[color]} w-36.75 h-12 rounded-full border-2 border-transparent hover:bg-transparent hover:text-white hover:border-white transition-colors duration-200 cursor-pointer`}
     >
       Learn More
     </button>
